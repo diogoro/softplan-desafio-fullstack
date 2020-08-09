@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Data
 @Builder
@@ -35,10 +36,13 @@ public class UsuarioDto {
 	private String nome;
 	
 	@NotNull
+	@Singular("perfis")
 	private Set<Perfil> perfis;
 
+	@Singular("processosCriados")
 	private Set<ProcessoDto> processosCriados;
 
+	@Singular("pareceres")
 	private Set<ParecerDto> pareceres;
 
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
@@ -48,9 +52,4 @@ public class UsuarioDto {
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
 	@Null
 	private OffsetDateTime dataAtualizacao;
-	
-	public void adicionarPerfil(Perfil perfil) {
-		this.perfis.add(perfil);
-	}
-
 }

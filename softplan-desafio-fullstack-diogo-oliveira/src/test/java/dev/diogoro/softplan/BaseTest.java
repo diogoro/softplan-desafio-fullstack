@@ -14,8 +14,8 @@ public class BaseTest {
 				.login("admin")
 				.senha("admin")
 				.nome("Usuario admin")
+				.perfis(Perfil.ADMIN)
 				.build();
-		usuario.adicionarPerfil(Perfil.ADMIN);
 		
 		return usuario;
 	}
@@ -25,8 +25,8 @@ public class BaseTest {
 				.login("triador")
 				.senha("triador")
 				.nome("Usuario triador")
+				.perfis(Perfil.TRIADOR)
 				.build();
-		usuario.adicionarPerfil(Perfil.TRIADOR);
 		return usuario;
 	}
 	
@@ -35,8 +35,8 @@ public class BaseTest {
 				.login("finalizador")
 				.senha("finalizador")
 				.nome("Usuario finalizador")
+				.perfis(Perfil.FINALIZADOR)
 				.build();
-		usuario.adicionarPerfil(Perfil.FINALIZADOR);
 		return usuario;
 	}
 	
