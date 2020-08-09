@@ -37,11 +37,11 @@ public class ProcessoDto {
 	@Singular("pareceres")
 	private Set<ParecerDto> pareceres;
 	
-	@NotNull
+	@Null
 	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	private OffsetDateTime dataCriacao;
 	
-	@NotNull
+	@Null
 	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	private OffsetDateTime dataAtualizacao;
 	
