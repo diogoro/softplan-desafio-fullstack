@@ -10,7 +10,6 @@ import javax.validation.constraints.Null;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import dev.diogoro.softplan.util.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,37 +19,28 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsuarioDto {
+public class ProcessoDto {
 
 	@Null
 	private UUID id;
-
 	@NotBlank
-	private String login;
-
-	@NotBlank
-	private String senha;
-
-	@NotBlank
-	private String nome;
+	private String descricao;
 	
 	@NotNull
-	private Set<Perfil> perfis;
-
-	private Set<ProcessoDto> processosCriados;
-
+	private UsuarioDto usuarioCadastro;
+	
+	@NotNull
+	private Set<UsuarioDto> listaUsuariosParecer;
+	
 	private Set<ParecerDto> pareceres;
-
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
-	@Null
+	
+	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	private OffsetDateTime dataCriacao;
-
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
-	@Null
+	
+	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
 	private OffsetDateTime dataAtualizacao;
 	
-	public void adicionarPerfil(Perfil perfil) {
-		this.perfis.add(perfil);
-	}
-
+	
 }
