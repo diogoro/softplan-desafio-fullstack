@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Data
 @Builder
@@ -30,8 +31,10 @@ public class ProcessoDto {
 	private UsuarioDto usuarioCadastro;
 	
 	@NotNull
+	@Singular("listaUsuariosParecer")
 	private Set<UsuarioDto> listaUsuariosParecer;
 	
+	@Singular("pareceres")
 	private Set<ParecerDto> pareceres;
 	
 	@NotNull
