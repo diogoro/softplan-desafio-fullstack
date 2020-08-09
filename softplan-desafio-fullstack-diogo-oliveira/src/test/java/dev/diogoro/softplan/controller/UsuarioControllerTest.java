@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.diogoro.softplan.BaseTest;
 import dev.diogoro.softplan.model.UsuarioDto;
+import dev.diogoro.softplan.util.Perfil;
 
 @WebMvcTest(UsuarioController.class)
 class UsuarioControllerTest extends BaseTest {
@@ -32,6 +33,27 @@ class UsuarioControllerTest extends BaseTest {
 	@Test
 	void testObterListaUsuarios() throws Exception {
 		mockMvc.perform(get(CAMINHO_API)
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk());
+	}
+	
+	@Test
+	void testObterListaUsuariosPorPerfilAdmin() throws Exception {
+		mockMvc.perform(get(CAMINHO_API+ "perfil/" + Perfil.ADMIN)
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk());
+	}
+	
+	@Test
+	void testObterListaUsuariosPorPerfilTraidor() throws Exception {
+		mockMvc.perform(get(CAMINHO_API+ "perfil/" + Perfil.TRIADOR)
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk());
+	}
+	
+	@Test
+	void testObterListaUsuariosPorPerfilFinalizador() throws Exception {
+		mockMvc.perform(get(CAMINHO_API+ "perfil/" + Perfil.FINALIZADOR)
 				.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk());
 	}

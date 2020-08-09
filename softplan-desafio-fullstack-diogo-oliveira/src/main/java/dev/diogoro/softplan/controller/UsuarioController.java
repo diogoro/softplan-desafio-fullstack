@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.diogoro.softplan.model.UsuarioDto;
+import dev.diogoro.softplan.util.Perfil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -29,6 +30,15 @@ public class UsuarioController {
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	public List<UsuarioDto> obterListaUsuarios() {
+		log.debug("Iniciando o obterListaUsuarios");
+		List<UsuarioDto> lista = new ArrayList<>();
+		return lista;
+	}
+	
+	@GetMapping("/perfil/{perfil}")
+	@ResponseBody
+	@ResponseStatus(HttpStatus.OK)
+	public List<UsuarioDto> obterListaUsuariosPorPerfil(@PathVariable("perfil") Perfil perfil) {
 		log.debug("Iniciando o obterListaUsuarios");
 		List<UsuarioDto> lista = new ArrayList<>();
 		return lista;
