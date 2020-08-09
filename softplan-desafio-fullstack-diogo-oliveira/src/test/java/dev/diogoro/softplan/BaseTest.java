@@ -3,6 +3,7 @@ package dev.diogoro.softplan;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.diogoro.softplan.model.ProcessoDto;
 import dev.diogoro.softplan.model.UsuarioDto;
 import dev.diogoro.softplan.util.Perfil;
 
@@ -46,5 +47,13 @@ public class BaseTest {
 		lista.add(obterUsuarioTriador());
 		lista.add(obterUsuarioFinalizador());
 		return lista;
+	}
+	
+	public ProcessoDto obterProcessoValidoUmParecer() {
+		return ProcessoDto.builder()
+				.descricao("Processo para Testes Unitarios")
+				.usuarioCadastro(obterUsuarioTriador())
+				.listaUsuariosParecer(obterUsuarioFinalizador())
+				.build();
 	}
 }
